@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Separator?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.empresalogistica.ViewController.UsuarioViewController">
+
+    <!-- Menu Superior -->
+    <top>
+        <VBox>
+            <MenuBar style="-fx-background-color: #2563eb;">
+                <Menu text="Archivo" style="-fx-text-fill: white;">
+                    <MenuItem text="Cerrar Sesión" onAction="#handleCerrarSesion" />
+                </Menu>
+                <Menu text="Ayuda" style="-fx-text-fill: white;">
+                    <MenuItem text="Acerca de" />
+                </Menu>
+            </MenuBar>
+
+            <HBox spacing="20.0" style="-fx-background-color: #1e40af; -fx-padding: 10; -fx-text-fill: white;" alignment="CENTER_LEFT">
+                <Label fx:id="lblBienvenida" text="Bienvenido Usuario" style="-fx-font-size: 16px; -fx-text-fill: white; -fx-font-weight: bold;" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Contenido Principal con Pestañas -->
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE" style="-fx-padding: 10;">
+
+            <!-- Pestaña Mi Perfil -->
+            <Tab text="Mi Perfil">
+                <VBox spacing="15.0" style="-fx-padding: 20;">
+
+                    <Label text="Información Personal" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+
+                    <HBox spacing="30.0">
+                        <VBox spacing="10.0" prefWidth="300.0">
+                            <Label fx:id="lblBienvenida" text="Nombre: " style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                            <Label fx:id="lblCorreo" text="Correo: " style="-fx-font-size: 12px;" />
+                            <Label fx:id="lblTelefono" text="Teléfono: " style="-fx-font-size: 12px;" />
+                            <Label fx:id="lblFechaRegistro" text="Fecha Registro: " style="-fx-font-size: 12px;" />
+                            <Label fx:id="lblEstado" text="Estado: " style="-fx-font-size: 12px; -fx-text-fill: #059669;" />
+                        </VBox>
+                    </HBox>
+
+                    <Separator />
+
+                    <Label text="Información de Envío" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+
+                    <VBox spacing="12.0">
+                        <HBox spacing="10.0">
+                            <Label text="Dirección Frecuente:" style="-fx-font-size: 12px; -fx-font-weight: bold;" prefWidth="150.0" />
+                            <TextField fx:id="txtDireccion" prefWidth="400.0" style="-fx-padding: 8; -fx-border-color: #d1d5db; -fx-border-radius: 5;" />
+                        </HBox>
+
+                        <HBox spacing="10.0">
+                            <Label text="Método de Pago:" style="-fx-font-size: 12px; -fx-font-weight: bold;" prefWidth="150.0" />
+                            <TextField fx:id="txtMetodoPago" prefWidth="400.0" style="-fx-padding: 8; -fx-border-color: #d1d5db; -fx-border-radius: 5;" />
+                        </HBox>
+
+                        <HBox spacing="10.0">
+                            <Label text="Envíos Realizados:" style="-fx-font-size: 12px; -fx-font-weight: bold;" prefWidth="150.0" />
+                            <TextField fx:id="txtEnvios" prefWidth="400.0" editable="false" style="-fx-padding: 8; -fx-border-color: #d1d5db; -fx-border-radius: 5;" />
+                        </HBox>
+                    </VBox>
+
+                    <HBox spacing="10.0">
+                        <Button fx:id="btnGuardarCambios" text="Guardar Cambios" onAction="#handleGuardarCambios" style="-fx-padding: 10 20; -fx-background-color: #059669; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold;" />
+                        <Label fx:id="lblMensaje" text="" style="-fx-text-fill: #059669; -fx-font-size: 12px;" />
+                    </HBox>
+                </VBox>
+            </Tab>
+
+            <!-- Pestaña Mis Envíos -->
+            <Tab text="Mis Envíos">
+                <VBox spacing="15.0" style="-fx-padding: 20;">
+                    <Label text="Historial de Envíos" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+
+                    <HBox spacing="10.0">
+                        <Button text="Nuevo Envío" style="-fx-padding: 10 20; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand;" onAction="#handleVerEnvios" />
+                        <Button text="Ver Historial" style="-fx-padding: 10 20; -fx-background-color: #7c3aed; -fx-text-fill: white; -fx-cursor: hand;" onAction="#handleVerHistorial" />
+                    </HBox>
+
+                    <Label text="Tus envíos aparecerán aquí" style="-fx-font-size: 14px; -fx-text-fill: #64748b; -fx-padding: 40;" />
+                </VBox>
+            </Tab>
+
+            <!-- Pestaña Mi Cartera -->
+            <Tab text="Mi Cartera">
+                <VBox spacing="15.0" style="-fx-padding: 20;">
+                    <Label text="Cartera Electrónica" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+
+                    <VBox style="-fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20; -fx-background-color: white;">
+                        <Label text="Saldo Disponible: $0.00" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #059669;" />
+                        <Label text="Última recarga: --" style="-fx-font-size: 12px; -fx-text-fill: #64748b; -fx-padding: 5 0 0 0;" />
+                    </VBox>
+
+                    <HBox spacing="10.0">
+                        <Button text="Recargar Saldo" style="-fx-padding: 10 20; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand;" />
+                        <Button text="Ver Movimientos" style="-fx-padding: 10 20; -fx-background-color: #7c3aed; -fx-text-fill: white; -fx-cursor: hand;" />
+                    </HBox>
+                </VBox>
+            </Tab>
+
+            <!-- Pestaña Configuración -->
+            <Tab text="Configuración">
+                <VBox spacing="15.0" style="-fx-padding: 20;">
+                    <Label text="Configuración de Cuenta" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+
+                    <VBox spacing="10.0">
+                        <Button text="Cambiar Contraseña" style="-fx-padding: 10 20; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand;" />
+                        <Button text="Actualizar Datos" style="-fx-padding: 10 20; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand;" />
+                        <Button text="Preferencias de Notificaciones" style="-fx-padding: 10 20; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand;" />
+                        <Button text="Política de Privacidad" style="-fx-padding: 10 20; -fx-background-color: #f59e0b; -fx-text-fill: white; -fx-cursor: hand;" />
+                    </VBox>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+
+</BorderPane>
