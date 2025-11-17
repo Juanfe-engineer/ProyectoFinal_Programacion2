@@ -13,6 +13,7 @@ public class Repartidor extends Persona implements ObservadorEnvio {
     private LocalDate fechaRegistro;
     private EstadoRepartidor estado;
     private String enviosRealizados;
+    private int incidenciasReportadas;
 
 
     public Repartidor(String id, String nombre, String correo,
@@ -24,6 +25,7 @@ public class Repartidor extends Persona implements ObservadorEnvio {
         this.fechaRegistro = fechaRegistro;
         this.estado = estado;
         this.enviosRealizados = enviosRealizados;
+        this.incidenciasReportadas = 0;
     }
 
     public DisponibilidadRepartidor getDisponibilidadRepartidor() {
@@ -50,6 +52,14 @@ public class Repartidor extends Persona implements ObservadorEnvio {
         this.fechaRegistro = fechaRegistro;
     }
 
+    public int getIncidenciasReportadas() {
+        return incidenciasReportadas;
+    }
+
+    public void setIncidenciasReportadas(int incidenciasReportadas) {
+        this.incidenciasReportadas = incidenciasReportadas;
+    }
+
     @Override
     public String toString() {
         return "Repartidor{" +
@@ -65,7 +75,7 @@ public class Repartidor extends Persona implements ObservadorEnvio {
 
     @Override
     public void actualizar(String idEnvio, EstadoEnvio nuevoEstado, String mensaje) {
-        System.out.println("📲 [NOTIFICACIÓN APP REPARTIDOR - " + this.nombre + "]");
+        System.out.println(" [NOTIFICACIÓN APP REPARTIDOR - " + this.nombre + "]");
         System.out.println("   ID Repartidor: " + this.id);
         System.out.println("   Envío #" + idEnvio + ": " + mensaje);
         System.out.println("   Estado: " + nuevoEstado.getDescripcion());
@@ -73,25 +83,25 @@ public class Repartidor extends Persona implements ObservadorEnvio {
         // Lógica específica según el estado
         switch (nuevoEstado) {
             case CONFIRMADO:
-                System.out.println("   ➡️  Nuevo envío asignado. Dirígete al punto de recogida.");
+                System.out.println("    Nuevo envío asignado. Dirígete al punto de recogida.");
                 this.estado = EstadoRepartidor.EN_CAMINO;
                 break;
 
             case RECOGIDO:
-                System.out.println("   ✅ Confirma que recogiste el paquete en la app.");
+                System.out.println("    Confirma que recogiste el paquete en la app.");
                 break;
 
             case EN_RUTA:
-                System.out.println("   🚚 En camino al destino. Mantén actualizada tu ubicación.");
+                System.out.println("    En camino al destino. Mantén actualizada tu ubicación.");
                 this.estado = EstadoRepartidor.OCUPADO;
                 break;
 
             case EN_REPARTO:
-                System.out.println("   📍 Cerca del destino. Prepárate para la entrega.");
+                System.out.println("    Cerca del destino. Prepárate para la entrega.");
                 break;
 
             case ENTREGADO:
-                System.out.println("   🎉 Entrega completada. ¡Buen trabajo!");
+                System.out.println("    Entrega completada. ¡Buen trabajo!");
                 this.estado = EstadoRepartidor.DISPONIBLE;
                 // Incrementar contador de envíos
                 int envios = Integer.parseInt(this.enviosRealizados);
@@ -99,12 +109,12 @@ public class Repartidor extends Persona implements ObservadorEnvio {
                 break;
 
             case CANCELADO:
-                System.out.println("   ⚠️  Envío cancelado. Regresa el paquete al centro.");
+                System.out.println("     Envío cancelado. Regresa el paquete al centro.");
                 this.estado = EstadoRepartidor.DISPONIBLE;
                 break;
 
             default:
-                System.out.println("   ℹ️  Estado actualizado.");
+                System.out.println("     Estado actualizado.");
         }
     }
 
@@ -116,5 +126,25 @@ public class Repartidor extends Persona implements ObservadorEnvio {
     @Override
     public String getTipoObservador() {
         return "Repartidor";
+    }
+
+    public void incrementarIncidencias(){
+        this.incidenciasReportadas++;
+    }
+
+    public EstadoRepartidor getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoRepartidor estado) {
+        this.estado = estado;
+    }
+
+    public String getEnviosRealizados() {
+        return enviosRealizados;
+    }
+
+    public void setEnviosRealizados(String enviosRealizados) {
+        this.enviosRealizados = enviosRealizados;
     }
 }

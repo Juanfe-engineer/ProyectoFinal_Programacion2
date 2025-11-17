@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.empresalogistica.ViewController.AdminViewController"
+            style="-fx-background-color: #f8fafc;">
+
+    <!-- ========== BARRA SUPERIOR ========== -->
+    <top>
+        <VBox style="-fx-background-color: linear-gradient(to right, #1e3a8a, #3b82f6); -fx-padding: 20;">
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <!-- Logo y Título -->
+                <VBox>
+                    <Label text="🎯 PANEL DE ADMINISTRACIÓN" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" />
+                    <Label text="Logística Express - Control Total del Sistema" style="-fx-text-fill: #bfdbfe; -fx-font-size: 12px;" />
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <!-- Botones de acción -->
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button text="🔄 Refrescar" onAction="#handleRefrescarDashboard"
+                            style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;" />
+                    <Button text="🚪 Cerrar Sesión" onAction="#handleCerrarSesion"
+                            style="-fx-background-color: #dc2626; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;" />
+                </HBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- ========== CONTENIDO PRINCIPAL ========== -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox spacing="20" style="-fx-padding: 20;">
+
+                <!-- ========== MÉTRICAS PRINCIPALES ========== -->
+                <VBox spacing="15">
+                    <Label text="📊 Métricas del Sistema" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
+
+                    <!-- Fila 1: Métricas Principales -->
+                    <GridPane hgap="15" vgap="15">
+                        <!-- Tarjeta 1: Total Usuarios -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <Label text="👥 Total Usuarios" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
+                            <Label fx:id="lblTotalUsuarios" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <Label text="Usuarios registrados" style="-fx-font-size: 10px; -fx-text-fill: #94a3b8;" />
+                        </VBox>
+
+                        <!-- Tarjeta 2: Total Repartidores -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <Label text="🚚 Total Repartidores" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
+                            <Label fx:id="lblTotalRepartidores" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #059669;" />
+                            <Label text="Repartidores activos" style="-fx-font-size: 10px; -fx-text-fill: #94a3b8;" />
+                        </VBox>
+
+                        <!-- Tarjeta 3: Total Envíos -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                            <Label text="📦 Total Envíos" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
+                            <Label fx:id="lblTotalEnvios" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #7c3aed;" />
+                            <Label text="Envíos procesados" style="-fx-font-size: 10px; -fx-text-fill: #94a3b8;" />
+                        </VBox>
+
+                        <!-- Tarjeta 4: Ingresos Totales -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                            <Label text="💰 Ingresos Totales" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
+                            <Label fx:id="lblIngresosTotales" text="0.00" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #059669;" />
+                            <Label text="COP" style="-fx-font-size: 10px; -fx-text-fill: #94a3b8;" />
+                        </VBox>
+
+                        <!-- Tarjeta 5: Envíos Hoy -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <Label text="📅 Envíos Hoy" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
+                            <Label fx:id="lblEnviosHoy" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #f59e0b;" />
+                            <Label text="Del día actual" style="-fx-font-size: 10px; -fx-text-fill: #94a3b8;" />
+                        </VBox>
+
+                        <!-- Tarjeta 6: Envíos del Mes -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <Label text="📊 Envíos del Mes" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
+                            <Label fx:id="lblEnviosMes" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #3b82f6;" />
+                            <Label text="Mes actual" style="-fx-font-size: 10px; -fx-text-fill: #94a3b8;" />
+                        </VBox>
+
+                        <!-- Tarjeta 7: Tasa de Éxito -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <Label text="✅ Tasa de Éxito" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
+                            <Label fx:id="lblTasaExito" text="0%" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #059669;" />
+                            <Label text="Entregas exitosas" style="-fx-font-size: 10px; -fx-text-fill: #94a3b8;" />
+                        </VBox>
+
+                        <!-- Tarjeta 8: Tiempo Promedio -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                            <Label text="⏱️ Tiempo Promedio" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
+                            <Label fx:id="lblTiempoPromedio" text="0 min" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #8b5cf6;" />
+                            <Label text="Tiempo de entrega" style="-fx-font-size: 10px; -fx-text-fill: #94a3b8;" />
+                        </VBox>
+                    </GridPane>
+
+                    <!-- Fila adicional -->
+                    <HBox spacing="15">
+                        <!-- Tarjeta 9: Incidencias -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                            <Label text="⚠️ Incidencias Totales" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
+                            <Label fx:id="lblIncidenciasTotales" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #dc2626;" />
+                            <Label text="Reportadas en el sistema" style="-fx-font-size: 10px; -fx-text-fill: #94a3b8;" />
+                        </VBox>
+
+                        <!-- Tarjeta 10: Pendientes -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                            <Label text="⏳ Envíos Pendientes" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
+                            <Label fx:id="lblEnviosPendientes" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #f59e0b;" />
+                            <Label text="Sin asignar" style="-fx-font-size: 10px; -fx-text-fill: #94a3b8;" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- ========== GRÁFICOS ========== -->
+                <VBox spacing="15">
+                    <Label text="📈 Análisis Visual" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
+
+                    <!-- Fila 1: Gráfico de Líneas y Barras -->
+                    <HBox spacing="15">
+                        <!-- Gráfico 1: Envíos de la Semana (LineChart) -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                            <LineChart fx:id="chartEnviosSemana" prefHeight="300" legendVisible="false" animated="true">
+                                <xAxis>
+                                    <CategoryAxis side="BOTTOM" label="Día" />
+                                </xAxis>
+                                <yAxis>
+                                    <NumberAxis side="LEFT" label="Cantidad" />
+                                </yAxis>
+                            </LineChart>
+                        </VBox>
+
+                        <!-- Gráfico 2: Top Repartidores (BarChart) -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                            <BarChart fx:id="chartTopRepartidores" prefHeight="300" legendVisible="false" animated="true">
+                                <xAxis>
+                                    <CategoryAxis side="BOTTOM" label="Repartidor" />
+                                </xAxis>
+                                <yAxis>
+                                    <NumberAxis side="LEFT" label="Entregas" />
+                                </yAxis>
+                            </BarChart>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Fila 2: Gráfico Circular y de Área -->
+                    <HBox spacing="15">
+                        <!-- Gráfico 3: Estados de Envío (PieChart) -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                            <PieChart fx:id="chartEstadosEnvio" prefHeight="300" animated="true" legendSide="RIGHT" />
+                        </VBox>
+
+                        <!-- Gráfico 4: Ingresos del Mes (AreaChart) -->
+                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                            <AreaChart fx:id="chartIngresosMes" prefHeight="300" legendVisible="false" animated="true">
+                                <xAxis>
+                                    <CategoryAxis side="BOTTOM" label="Semana" />
+                                </xAxis>
+                                <yAxis>
+                                    <NumberAxis side="LEFT" label="Ingresos (COP)" />
+                                </yAxis>
+                            </AreaChart>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- ========== GESTIÓN CON TABS ========== -->
+                <VBox spacing="15" VBox.vgrow="ALWAYS">
+                    <Label text="🛠️ Gestión del Sistema" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
+
+                    <TabPane tabClosingPolicy="UNAVAILABLE" style="-fx-background-color: white; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+
+                        <!-- ========== TAB 1: GESTIÓN DE USUARIOS ========== -->
+                        <Tab text="👥 Usuarios">
+                            <VBox spacing="15" style="-fx-padding: 20;">
+                                <!-- Barra de herramientas -->
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                    <TextField fx:id="txtBuscarUsuario" promptText="🔍 Buscar usuario..." prefWidth="300"
+                                               style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-background-radius: 6;" />
+                                    <Button text="Buscar" onAction="#handleBuscarUsuario"
+                                            style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+
+                                    <Region HBox.hgrow="ALWAYS" />
+
+                                    <Button fx:id="btnCrearUsuario" text="➕ Crear Usuario" onAction="#handleCrearUsuario"
+                                            style="-fx-background-color: #059669; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;" />
+                                    <Button fx:id="btnEditarUsuario" text="✏️ Editar" onAction="#handleEditarUsuario"
+                                            style="-fx-background-color: #f59e0b; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+                                    <Button fx:id="btnSuspenderUsuario" text="⏸️ Suspender/Activar" onAction="#handleSuspenderUsuario"
+                                            style="-fx-background-color: #8b5cf6; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+                                    <Button fx:id="btnEliminarUsuario" text="🗑️ Eliminar" onAction="#handleEliminarUsuario"
+                                            style="-fx-background-color: #dc2626; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+                                </HBox>
+
+                                <!-- Tabla de usuarios -->
+                                <TableView fx:id="tblUsuarios" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="colUsuarioId" text="ID" prefWidth="100" />
+                                        <TableColumn fx:id="colUsuarioNombre" text="Nombre" prefWidth="200" />
+                                        <TableColumn fx:id="colUsuarioCorreo" text="Correo" prefWidth="200" />
+                                        <TableColumn fx:id="colUsuarioTelefono" text="Teléfono" prefWidth="120" />
+                                        <TableColumn fx:id="colUsuarioEstado" text="Estado" prefWidth="100" />
+                                        <TableColumn fx:id="colUsuarioEnvios" text="Envíos" prefWidth="80" />
+                                    </columns>
+                                    <placeholder>
+                                        <Label text="No hay usuarios registrados" style="-fx-text-fill: #64748b;" />
+                                    </placeholder>
+                                </TableView>
+                            </VBox>
+                        </Tab>
+
+                        <!-- ========== TAB 2: GESTIÓN DE REPARTIDORES ========== -->
+                        <Tab text="🚚 Repartidores">
+                            <VBox spacing="15" style="-fx-padding: 20;">
+                                <!-- Barra de herramientas -->
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                    <TextField fx:id="txtBuscarRepartidor" promptText="🔍 Buscar repartidor..." prefWidth="300"
+                                               style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-background-radius: 6;" />
+                                    <Button text="Buscar" onAction="#handleBuscarRepartidor"
+                                            style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+
+                                    <Region HBox.hgrow="ALWAYS" />
+
+                                    <Button fx:id="btnCrearRepartidor" text="➕ Crear Repartidor" onAction="#handleCrearRepartidor"
+                                            style="-fx-background-color: #059669; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;" />
+                                    <Button fx:id="btnEditarRepartidor" text="✏️ Editar" onAction="#handleEditarRepartidor"
+                                            style="-fx-background-color: #f59e0b; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+                                    <Button fx:id="btnCambiarDisponibilidad" text="🔄 Cambiar Disponibilidad" onAction="#handleCambiarDisponibilidad"
+                                            style="-fx-background-color: #8b5cf6; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+                                </HBox>
+
+                                <!-- Tabla de repartidores -->
+                                <TableView fx:id="tblRepartidores" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="colRepartidorId" text="ID" prefWidth="100" />
+                                        <TableColumn fx:id="colRepartidorNombre" text="Nombre" prefWidth="200" />
+                                        <TableColumn fx:id="colRepartidorZona" text="Zona Cobertura" prefWidth="150" />
+                                        <TableColumn fx:id="colRepartidorDisponibilidad" text="Disponibilidad" prefWidth="130" />
+                                        <TableColumn fx:id="colRepartidorEnvios" text="Envíos" prefWidth="80" />
+                                        <TableColumn fx:id="colRepartidorCalificacion" text="Calificación" prefWidth="150" />
+                                    </columns>
+                                    <placeholder>
+                                        <Label text="No hay repartidores registrados" style="-fx-text-fill: #64748b;" />
+                                    </placeholder>
+                                </TableView>
+                            </VBox>
+                        </Tab>
+
+                        <!-- ========== TAB 3: GESTIÓN DE ENVÍOS ========== -->
+                        <Tab text="📦 Envíos">
+                            <VBox spacing="15" style="-fx-padding: 20;">
+                                <!-- Barra de herramientas -->
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                    <Label text="Filtrar por estado:" style="-fx-font-weight: bold;" />
+                                    <ComboBox fx:id="cmbFiltroEstado" onAction="#handleFiltrarEnvios" prefWidth="150"
+                                              style="-fx-padding: 8;" />
+
+                                    <Region HBox.hgrow="ALWAYS" />
+
+                                    <Button fx:id="btnAsignarRepartidor" text="👤 Asignar Repartidor" onAction="#handleAsignarRepartidor"
+                                            style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;" />
+                                    <Button fx:id="btnVerDetalles" text="🔍 Ver Detalles" onAction="#handleVerDetalles"
+                                            style="-fx-background-color: #8b5cf6; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+                                </HBox>
+
+                                <!-- Tabla de envíos -->
+                                <TableView fx:id="tblEnvios" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="colEnvioId" text="ID" prefWidth="100" />
+                                        <TableColumn fx:id="colEnvioOrigen" text="Origen" prefWidth="200" />
+                                        <TableColumn fx:id="colEnvioDestino" text="Destino" prefWidth="200" />
+                                        <TableColumn fx:id="colEnvioEstado" text="Estado" prefWidth="150" />
+                                        <TableColumn fx:id="colEnvioFecha" text="Fecha" prefWidth="120" />
+                                        <TableColumn fx:id="colEnvioCosto" text="Costo" prefWidth="100" />
+                                    </columns>
+                                    <placeholder>
+                                        <Label text="No hay envíos registrados" style="-fx-text-fill: #64748b;" />
+                                    </placeholder>
+                                </TableView>
+
+                                <!-- Leyenda de estados -->
+                                <HBox spacing="20" alignment="CENTER" style="-fx-padding: 10; -fx-background-color: #f1f5f9; -fx-background-radius: 6;">
+                                    <Label text="🔵 SOLICITADO" style="-fx-font-size: 10px; -fx-text-fill: #2563eb; -fx-font-weight: bold;" />
+                                    <Label text="🟡 EN RUTA" style="-fx-font-size: 10px; -fx-text-fill: #f59e0b; -fx-font-weight: bold;" />
+                                    <Label text="🟢 ENTREGADO" style="-fx-font-size: 10px; -fx-text-fill: #059669; -fx-font-weight: bold;" />
+                                    <Label text="🔴 CANCELADO" style="-fx-font-size: 10px; -fx-text-fill: #dc2626; -fx-font-weight: bold;" />
+                                </HBox>
+                            </VBox>
+                        </Tab>
+
+                    </TabPane>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

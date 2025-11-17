@@ -118,4 +118,7 @@ public class UsuarioDTO {
                 ", enviosRealizados='" + enviosRealizados + '\'' +
                 '}';
     }
+
+    public void setPassword(String password) {
+    }
 }

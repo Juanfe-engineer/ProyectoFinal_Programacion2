@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.empresalogistica.ViewController.RegistroViewController">
+
+    <ScrollPane fitToWidth="true" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: transparent; -fx-background: transparent;">
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="20" right="10" bottom="20" left="10" />
+            </padding>
+
+            <VBox alignment="TOP_CENTER" spacing="12" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);" prefWidth="380.0">
+                <padding>
+                    <Insets top="25" right="30" bottom="25" left="30" />
+                </padding>
+
+                <VBox alignment="CENTER" spacing="5">
+                    <Label text="Crear Cuenta" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                    <Label text="Complete sus datos para registrarse" style="-fx-font-size: 11px; -fx-text-fill: #64748b;" />
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Registrarse como:" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
+                    <ComboBox fx:id="cmbTipoRegistro" prefWidth="320" style="-fx-background-color: #f1f5f9; -fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8;" />
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Nombre Completo" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
+                    <TextField fx:id="txtNombre" promptText="Ej: Juan Perez" style="-fx-background-color: #f1f5f9; -fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8; -fx-font-size: 12px;" />
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Correo Electronico" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
+                    <TextField fx:id="txtCorreo" promptText="ejemplo@email.com" style="-fx-background-color: #f1f5f9; -fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8; -fx-font-size: 12px;" />
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Telefono" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
+                    <TextField fx:id="txtTelefono" promptText="310 123 4567" style="-fx-background-color: #f1f5f9; -fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8; -fx-font-size: 12px;" />
+                </VBox>
+
+                <VBox spacing="5" fx:id="vboxDireccion">
+                    <Label text="Direccion Frecuente" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
+                    <TextField fx:id="txtDireccion" promptText="Calle 10 #20-30" style="-fx-background-color: #f1f5f9; -fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8; -fx-font-size: 12px;" />
+                </VBox>
+
+                <VBox spacing="5" fx:id="vboxMetodoPago">
+                    <Label text="Metodo de Pago Preferido" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
+                    <ComboBox fx:id="cmbMetodoPago" prefWidth="320" style="-fx-background-color: #f1f5f9; -fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8;" />
+                </VBox>
+
+                <VBox spacing="5" fx:id="vboxZonaCobertura" managed="false" visible="false">
+                    <Label text="Zona de Cobertura" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
+                    <TextField fx:id="txtZonaCobertura" promptText="Ej: Zona Norte, Zona Centro" style="-fx-background-color: #f1f5f9; -fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8; -fx-font-size: 12px;" />
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Contrasena" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
+                    <PasswordField fx:id="txtPassword" promptText="Minimo 6 caracteres" style="-fx-background-color: #f1f5f9; -fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8; -fx-font-size: 12px;" />
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Confirmar Contrasena" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
+                    <PasswordField fx:id="txtConfirmPassword" promptText="Repita la contrasena" style="-fx-background-color: #f1f5f9; -fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8; -fx-font-size: 12px;" />
+                </VBox>
+
+                <Label fx:id="lblMensaje" text="" style="-fx-text-fill: #dc2626; -fx-font-size: 10px;" wrapText="true" maxWidth="320" />
+
+                <HBox alignment="CENTER" spacing="10">
+                    <padding>
+                        <Insets top="5" />
+                    </padding>
+                    <Button fx:id="btnRegistrar" text="Registrarse" onAction="#handleRegistrar" prefWidth="150" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: 500; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+                    <Button fx:id="btnCancelar" text="Cancelar" onAction="#handleCancelar" prefWidth="150" style="-fx-background-color: #64748b; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: 500; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+                </HBox>
+
+            </VBox>
+        </VBox>
+    </ScrollPane>
+
+</AnchorPane>

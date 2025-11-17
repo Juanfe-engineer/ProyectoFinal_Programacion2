@@ -3,17 +3,18 @@ package co.edu.uniquindio.empresalogistica.Model;
 import co.edu.uniquindio.empresalogistica.Model.Enums.EstadoIncidencia;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Incidencia {
     private String idIncidencia;
     private String descripcion;
     private EstadoIncidencia estado;
-    private LocalDate fechaReporte;
+    private LocalDateTime fechaReporte;
     private LocalDate fechaResolucion;
     private String solucion;
 
     public Incidencia(String idIncidencia, String descripcion, EstadoIncidencia estado,
-                      LocalDate fechaReporte, LocalDate fechaResolucion, String solucion) {
+                      LocalDateTime fechaReporte, LocalDate fechaResolucion, String solucion) {
         this.idIncidencia = idIncidencia;
         this.descripcion = descripcion;
         this.estado = estado;
@@ -46,11 +47,11 @@ public class Incidencia {
         this.estado = estado;
     }
 
-    public LocalDate getFechaReporte() {
+    public LocalDateTime getFechaReporte() {
         return fechaReporte;
     }
 
-    public void setFechaReporte(LocalDate fechaReporte) {
+    public void setFechaReporte(LocalDateTime fechaReporte) {
         this.fechaReporte = fechaReporte;
     }
 

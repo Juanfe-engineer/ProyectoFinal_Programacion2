@@ -1,133 +1,387 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Separator?>
 
-<BorderPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.empresalogistica.ViewController.UsuarioViewController">
+<BorderPane prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: #f5f5f5;"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.empresalogistica.ViewController.UsuarioViewController">
 
-    <!-- Menu Superior -->
     <top>
         <VBox>
             <MenuBar style="-fx-background-color: #2563eb;">
-                <Menu text="Archivo" style="-fx-text-fill: white;">
+                <Menu text="Archivo">
                     <MenuItem text="Cerrar Sesión" onAction="#handleCerrarSesion" />
+                    <MenuItem text="Salir" />
                 </Menu>
-                <Menu text="Ayuda" style="-fx-text-fill: white;">
+                <Menu text="Ayuda">
+                    <MenuItem text="Manual de Usuario" />
+                    <MenuItem text="Soporte" />
                     <MenuItem text="Acerca de" />
                 </Menu>
             </MenuBar>
 
-            <HBox spacing="20.0" style="-fx-background-color: #1e40af; -fx-padding: 10; -fx-text-fill: white;" alignment="CENTER_LEFT">
-                <Label fx:id="lblBienvenida" text="Bienvenido Usuario" style="-fx-font-size: 16px; -fx-text-fill: white; -fx-font-weight: bold;" />
+            <HBox spacing="20.0" style="-fx-background-color: #1e40af; -fx-padding: 15;" alignment="CENTER_LEFT">
+                <Label fx:id="lblBienvenida" text="Bienvenido Usuario" style="-fx-font-size: 18px; -fx-text-fill: white; -fx-font-weight: bold;" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="Logistica Express" style="-fx-font-size: 16px; -fx-text-fill: white; -fx-font-weight: 500;" />
             </HBox>
         </VBox>
     </top>
 
-    <!-- Contenido Principal con Pestañas -->
     <center>
-        <TabPane tabClosingPolicy="UNAVAILABLE" style="-fx-padding: 10;">
+        <TabPane tabClosingPolicy="UNAVAILABLE" style="-fx-padding: 15;">
 
-            <!-- Pestaña Mi Perfil -->
             <Tab text="Mi Perfil">
-                <VBox spacing="15.0" style="-fx-padding: 20;">
+                <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                    <VBox spacing="20.0" style="-fx-padding: 25;">
 
-                    <Label text="Información Personal" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
+                            <Label text="Informacion Personal" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <Separator />
 
-                    <HBox spacing="30.0">
-                        <VBox spacing="10.0" prefWidth="300.0">
-                            <Label fx:id="lblBienvenida" text="Nombre: " style="-fx-font-size: 12px; -fx-font-weight: bold;" />
-                            <Label fx:id="lblCorreo" text="Correo: " style="-fx-font-size: 12px;" />
-                            <Label fx:id="lblTelefono" text="Teléfono: " style="-fx-font-size: 12px;" />
-                            <Label fx:id="lblFechaRegistro" text="Fecha Registro: " style="-fx-font-size: 12px;" />
-                            <Label fx:id="lblEstado" text="Estado: " style="-fx-font-size: 12px; -fx-text-fill: #059669;" />
+                            <GridPane hgap="30.0" vgap="12.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="250.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="250.0" />
+                                </columnConstraints>
+
+                                <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <Label text="Nombre Completo" style="-fx-font-size: 11px; -fx-text-fill: #64748b; -fx-font-weight: 500;" />
+                                    <Label fx:id="lblNombrePerfil" text="Usuario" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
+                                </VBox>
+
+                                <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <Label text="Correo Electronico" style="-fx-font-size: 11px; -fx-text-fill: #64748b; -fx-font-weight: 500;" />
+                                    <Label fx:id="lblCorreo" text="usuario@email.com" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
+                                </VBox>
+
+                                <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                    <Label text="Telefono" style="-fx-font-size: 11px; -fx-text-fill: #64748b; -fx-font-weight: 500;" />
+                                    <Label fx:id="lblTelefono" text="310 123 4567" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
+                                </VBox>
+
+                                <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <Label text="Fecha de Registro" style="-fx-font-size: 11px; -fx-text-fill: #64748b; -fx-font-weight: 500;" />
+                                    <Label fx:id="lblFechaRegistro" text="01/01/2025" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
+                                </VBox>
+
+                                <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                    <Label text="Estado de Cuenta" style="-fx-font-size: 11px; -fx-text-fill: #64748b; -fx-font-weight: 500;" />
+                                    <Label fx:id="lblEstado" text="ACTIVO" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #059669;" />
+                                </VBox>
+
+                                <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <Label text="Envios Realizados" style="-fx-font-size: 11px; -fx-text-fill: #64748b; -fx-font-weight: 500;" />
+                                    <TextField fx:id="txtEnvios" editable="false" text="0" style="-fx-background-color: #f1f5f9; -fx-padding: 8; -fx-font-weight: bold;" />
+                                </VBox>
+                            </GridPane>
                         </VBox>
-                    </HBox>
 
-                    <Separator />
+                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
+                            <Label text="Informacion de Envio" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <Separator />
 
-                    <Label text="Información de Envío" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <VBox spacing="12.0">
+                                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                                    <Label text="Direccion Frecuente:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
+                                    <TextField fx:id="txtDireccion" promptText="Ej: Calle 10 #20-30, Bogota" HBox.hgrow="ALWAYS" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                </HBox>
 
-                    <VBox spacing="12.0">
-                        <HBox spacing="10.0">
-                            <Label text="Dirección Frecuente:" style="-fx-font-size: 12px; -fx-font-weight: bold;" prefWidth="150.0" />
-                            <TextField fx:id="txtDireccion" prefWidth="400.0" style="-fx-padding: 8; -fx-border-color: #d1d5db; -fx-border-radius: 5;" />
-                        </HBox>
+                                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                                    <Label text="Metodo de Pago:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
+                                    <TextField fx:id="txtMetodoPago" promptText="Ej: Tarjeta de credito" HBox.hgrow="ALWAYS" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                </HBox>
+                            </VBox>
 
-                        <HBox spacing="10.0">
-                            <Label text="Método de Pago:" style="-fx-font-size: 12px; -fx-font-weight: bold;" prefWidth="150.0" />
-                            <TextField fx:id="txtMetodoPago" prefWidth="400.0" style="-fx-padding: 8; -fx-border-color: #d1d5db; -fx-border-radius: 5;" />
-                        </HBox>
+                            <HBox spacing="15.0" style="-fx-padding: 10 0 0 0;">
+                                <Button fx:id="btnGuardarCambios" text="Guardar Cambios" onAction="#handleGuardarCambios" style="-fx-padding: 12 25; -fx-background-color: #059669; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold; -fx-background-radius: 6; -fx-font-size: 13px;" />
+                            </HBox>
+                        </VBox>
 
-                        <HBox spacing="10.0">
-                            <Label text="Envíos Realizados:" style="-fx-font-size: 12px; -fx-font-weight: bold;" prefWidth="150.0" />
-                            <TextField fx:id="txtEnvios" prefWidth="400.0" editable="false" style="-fx-padding: 8; -fx-border-color: #d1d5db; -fx-border-radius: 5;" />
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <Tab text="Nuevo Envio">
+                <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                    <VBox spacing="20.0" style="-fx-padding: 25;">
+
+                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
+                            <Label text="Datos del Envio" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <Separator />
+
+                            <GridPane hgap="20.0" vgap="15.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" percentWidth="50" />
+                                    <ColumnConstraints hgrow="SOMETIMES" percentWidth="50" />
+                                </columnConstraints>
+
+                                <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <Label text="Origen" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                    <TextField fx:id="txtOrigen" promptText="Direccion de origen" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                </VBox>
+
+                                <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <Label text="Destino" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                    <TextField fx:id="txtDestino" promptText="Direccion de destino" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                </VBox>
+
+                                <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                    <Label text="Peso (kg)" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                    <TextField fx:id="txtPeso" promptText="Ej: 2.5" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                    <Label text="Maximo: 100 kg" style="-fx-font-size: 10px; -fx-text-fill: #64748b;" />
+                                </VBox>
+
+                                <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <Label text="Volumen (cm3)" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                    <TextField fx:id="txtVolumen" promptText="Opcional" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                </VBox>
+
+                                <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                    <Label text="Distancia (km)" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                    <TextField fx:id="txtDistancia" promptText="Ej: 15" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                    <Label text="Maximo: 1000 km" style="-fx-font-size: 10px; -fx-text-fill: #64748b;" />
+                                </VBox>
+
+                                <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <Label text="Prioridad" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                    <ComboBox fx:id="cmbPrioridad" prefWidth="300.0" style="-fx-padding: 8;" />
+                                </VBox>
+
+                                <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2">
+                                    <Label text="Descripcion del Paquete" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                    <TextArea fx:id="txtDescripcion" promptText="Describa el contenido del paquete..." prefRowCount="3" wrapText="true" style="-fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                </VBox>
+                            </GridPane>
+                        </VBox>
+
+                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
+                            <Label text="Servicios Adicionales" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <Separator />
+
+                            <GridPane hgap="30.0" vgap="12.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" percentWidth="50" />
+                                    <ColumnConstraints hgrow="SOMETIMES" percentWidth="50" />
+                                </columnConstraints>
+
+                                <CheckBox fx:id="chkZonaRural" text="Zona Rural" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-size: 13px;" />
+                                <CheckBox fx:id="chkSeguro" text="Seguro del Envio (+$5,000)" GridPane.columnIndex="1" GridPane.rowIndex="0" style="-fx-font-size: 13px;" />
+                                <CheckBox fx:id="chkFragil" text="Paquete Fragil (+$3,000)" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-size: 13px;" />
+                                <CheckBox fx:id="chkFirmaRequerida" text="Firma Requerida (+$2,000)" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-font-size: 13px;" />
+                                <CheckBox fx:id="chkRastreoPremium" text="Rastreo Premium GPS (+$5,000)" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2" style="-fx-font-size: 13px;" />
+                            </GridPane>
+                        </VBox>
+
+                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
+                            <HBox spacing="20.0" alignment="CENTER">
+                                <Button fx:id="btnCotizar" text="Cotizar Envio" onAction="#handleCotizar" style="-fx-padding: 12 30; -fx-background-color: #7c3aed; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold; -fx-background-radius: 6; -fx-font-size: 14px;" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label fx:id="lblCostoEstimado" text="Costo Estimado: $0.00" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #64748b;" />
+                            </HBox>
+
+                            <Separator />
+
+                            <HBox spacing="15.0" alignment="CENTER">
+                                <Button fx:id="btnCrearEnvio" text="Crear Envio y Pagar" onAction="#handleCrearEnvio" style="-fx-padding: 15 40; -fx-background-color: #059669; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold; -fx-background-radius: 6; -fx-font-size: 15px;" />
+                            </HBox>
+                        </VBox>
+
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <Tab text="Mis Envios">
+                <VBox spacing="20.0" style="-fx-padding: 25;">
+
+                    <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
+                        <Label text="Filtros de Busqueda" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+
+                        <HBox spacing="15.0" alignment="CENTER_LEFT">
+                            <Label text="Estado:" style="-fx-font-size: 13px; -fx-font-weight: bold;" />
+                            <ComboBox fx:id="cmbFiltroEstado" prefWidth="180.0" />
+
+                            <Label text="Desde:" style="-fx-font-size: 13px; -fx-font-weight: bold;" />
+                            <DatePicker fx:id="dtpFechaInicio" prefWidth="150.0" />
+
+                            <Label text="Hasta:" style="-fx-font-size: 13px; -fx-font-weight: bold;" />
+                            <DatePicker fx:id="dtpFechaFin" prefWidth="150.0" />
+
+                            <Button fx:id="btnFiltrar" text="Filtrar" onAction="#handleFiltrar" style="-fx-padding: 8 20; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5;" />
+                            <Button fx:id="btnLimpiarFiltros" text="Limpiar" onAction="#handleLimpiarFiltros" style="-fx-padding: 8 20; -fx-background-color: #64748b; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5;" />
                         </HBox>
                     </VBox>
 
-                    <HBox spacing="10.0">
-                        <Button fx:id="btnGuardarCambios" text="Guardar Cambios" onAction="#handleGuardarCambios" style="-fx-padding: 10 20; -fx-background-color: #059669; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold;" />
-                        <Label fx:id="lblMensaje" text="" style="-fx-text-fill: #059669; -fx-font-size: 12px;" />
-                    </HBox>
+                    <VBox spacing="10.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+                        <HBox spacing="15.0" alignment="CENTER_LEFT">
+                            <Label text="Historial de Envios" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button fx:id="btnDescargarCSV" text="Descargar CSV" onAction="#handleDescargarCSV" style="-fx-padding: 8 15; -fx-background-color: #059669; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5; -fx-font-size: 12px;" />
+                            <Button fx:id="btnDescargarPDF" text="Descargar PDF" onAction="#handleDescargarPDF" style="-fx-padding: 8 15; -fx-background-color: #dc2626; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5; -fx-font-size: 12px;" />
+                        </HBox>
+
+                        <TableView fx:id="tblEnvios" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colId" text="ID" prefWidth="100" />
+                                <TableColumn fx:id="colOrigen" text="Origen" prefWidth="200" />
+                                <TableColumn fx:id="colDestino" text="Destino" prefWidth="200" />
+                                <TableColumn fx:id="colEstado" text="Estado" prefWidth="150" />
+                                <TableColumn fx:id="colFecha" text="Fecha" prefWidth="120" />
+                                <TableColumn fx:id="colCosto" text="Costo" prefWidth="100" />
+                                <TableColumn fx:id="colIncidencias" text="Incidencias" prefWidth="100" />
+                            </columns>
+                        </TableView>
+                        <HBox spacing="10" alignment="CENTER_LEFT" style="-fxpadding: 10 0 0 0;">
+                            <Label text="Tip: Haz doble clic en un envio para ver sus detalles completos e incidencias"
+                                   style="-fx-font-size: 11px; -fx-text-fill: #64748b; -fx-font-size: italic" />
+                        </HBox>
+
+                    </VBox>
+
+                    <VBox spacing="18.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
+                        <Label text="Rastrear Envio" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+
+                        <HBox spacing="15.0" alignment="CENTER_LEFT">
+                            <Label text="ID del Envio:" style="-fx-font-size: 13px; -fx-font-weight: bold;" />
+                            <TextField fx:id="txtRastreoId" promptText="Ingrese ID del envio..." prefWidth="300.0" style="-fx-padding: 10;" />
+                            <Button fx:id="btnRastrear" text="Rastrear" onAction="#handleRastrear" style="-fx-padding: 10 25; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 6; -fx-font-weight: bold;" />
+                        </HBox>
+
+                        <TextArea fx:id="txtInfoRastreo" editable="false" prefRowCount="18" wrapText="true" promptText="La informacion de rastreo aparecera aqui..." style="-fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-font-family: monospace; -fx-font-size: 12px;" />
+                    </VBox>
+
                 </VBox>
             </Tab>
 
-            <!-- Pestaña Mis Envíos -->
-            <Tab text="Mis Envíos">
-                <VBox spacing="15.0" style="-fx-padding: 20;">
-                    <Label text="Historial de Envíos" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
-
-                    <HBox spacing="10.0">
-                        <Button text="Nuevo Envío" style="-fx-padding: 10 20; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand;" onAction="#handleVerEnvios" />
-                        <Button text="Ver Historial" style="-fx-padding: 10 20; -fx-background-color: #7c3aed; -fx-text-fill: white; -fx-cursor: hand;" onAction="#handleVerHistorial" />
-                    </HBox>
-
-                    <Label text="Tus envíos aparecerán aquí" style="-fx-font-size: 14px; -fx-text-fill: #64748b; -fx-padding: 40;" />
-                </VBox>
-            </Tab>
-
-            <!-- Pestaña Mi Cartera -->
             <Tab text="Mi Cartera">
-                <VBox spacing="15.0" style="-fx-padding: 20;">
-                    <Label text="Cartera Electrónica" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                <VBox spacing="20.0" style="-fx-padding: 25;">
 
-                    <VBox style="-fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20; -fx-background-color: white;">
-                        <Label text="Saldo Disponible: $0.00" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #059669;" />
-                        <Label text="Última recarga: --" style="-fx-font-size: 12px; -fx-text-fill: #64748b; -fx-padding: 5 0 0 0;" />
+                    <VBox spacing="15" style="-fx-background-color: #059669; -fx-padding: 30; -fx-background-radius: 10;">
+                        <Label text="Cartera Electronica" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;" />
+                        <Label text="Saldo Disponible" style="-fx-font-size: 14px; -fx-text-fill: white;" />
+                        <Label fx:id="lblSaldoDisponible" text=" $0.00 COP" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: white;" />
                     </VBox>
 
-                    <HBox spacing="10.0">
-                        <Button text="Recargar Saldo" style="-fx-padding: 10 20; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand;" />
-                        <Button text="Ver Movimientos" style="-fx-padding: 10 20; -fx-background-color: #7c3aed; -fx-text-fill: white; -fx-cursor: hand;" />
-                    </HBox>
+                    <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
+                        <Label text="Recargar Saldo" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+
+                        <HBox spacing="15.0" alignment="CENTER_LEFT">
+                            <Label text="Monto a Recargar:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 140px;" />
+                            <TextField fx:id="txtMontoRecarga" promptText="Ej: 50000" prefWidth="250.0" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                            <Button fx:id="btnRecargar" text="Recargar" onAction="#handleRecargar" style="-fx-padding: 10 30; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold; -fx-background-radius: 6;" />
+                        </HBox>
+
+                        <Label text="Monto maximo: $1,000,000 COP" style="-fx-font-size: 11px; -fx-text-fill: #64748b;" />
+                    </VBox>
+
+                    <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+                        <Label text="Historial de Movimientos" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                        <TextArea fx:id="txtHistorialMovimientos" editable="false" wrapText="true" promptText="Sus movimientos apareceran aqui..." prefRowCount="16" VBox.vgrow="ALWAYS" style="-fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-font-family: monospace; -fx-font-size: 12px;" />
+                    </VBox>
+
                 </VBox>
             </Tab>
 
-            <!-- Pestaña Configuración -->
-            <Tab text="Configuración">
-                <VBox spacing="15.0" style="-fx-padding: 20;">
-                    <Label text="Configuración de Cuenta" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+            <Tab text="Configuracion">
+                <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                    <VBox spacing="20.0" style="-fx-padding: 25;">
 
-                    <VBox spacing="10.0">
-                        <Button text="Cambiar Contraseña" style="-fx-padding: 10 20; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand;" />
-                        <Button text="Actualizar Datos" style="-fx-padding: 10 20; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand;" />
-                        <Button text="Preferencias de Notificaciones" style="-fx-padding: 10 20; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-cursor: hand;" />
-                        <Button text="Política de Privacidad" style="-fx-padding: 10 20; -fx-background-color: #f59e0b; -fx-text-fill: white; -fx-cursor: hand;" />
+                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
+                            <Label text="Actualizar Informacion Personal" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <Separator />
+
+                            <VBox spacing="12.0">
+                                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                                    <Label text="Nombre Completo:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
+                                    <TextField fx:id="txtNombrePerfil" promptText="Juan Perez" HBox.hgrow="ALWAYS" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                </HBox>
+
+                                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                                    <Label text="Telefono:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
+                                    <TextField fx:id="txtTelefonoPerfil" promptText="310 123 4567" HBox.hgrow="ALWAYS" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                </HBox>
+                            </VBox>
+
+                            <HBox spacing="10.0">
+                                <Button fx:id="btnActualizarDatos" text="Actualizar Datos" onAction="#handleActualizarDatos" style="-fx-padding: 10 25; -fx-background-color: #059669; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold; -fx-background-radius: 6;" />
+                            </HBox>
+                        </VBox>
+
+                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
+                            <Separator />
+
+                            <VBox spacing="12.0">
+                                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                                    <Label text="Contrasena Actual:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
+                                    <PasswordField fx:id="txtPasswordActual" promptText="********" HBox.hgrow="ALWAYS" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                </HBox>
+
+                                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                                    <Label text="Nueva Contrasena:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
+                                    <PasswordField fx:id="txtPasswordNueva" promptText="********" HBox.hgrow="ALWAYS" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                </HBox>
+
+                                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                                    <Label text="Confirmar Contrasena:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
+                                    <PasswordField fx:id="txtPasswordConfirmar" promptText="********" HBox.hgrow="ALWAYS" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                                </HBox>
+                            </VBox>
+
+                            <HBox spacing="10.0">
+                                <Button fx:id="btnCambiarPassword" text="Cambiar Contrasena" onAction="#handleCambiarPassword" style="-fx-padding: 10 25; -fx-background-color: #f59e0b; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold; -fx-background-radius: 6;" />
+                            </HBox>
+                        </VBox>
+
+                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
+                            <Label text="Preferencias de Notificaciones" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <Separator />
+
+                            <VBox spacing="10.0">
+                                <CheckBox text="Recibir notificaciones por correo electronico" selected="true" style="-fx-font-size: 13px;" />
+                                <CheckBox text="Recibir notificaciones por SMS" selected="true" style="-fx-font-size: 13px;" />
+                                <CheckBox text="Notificar cambios de estado de envios" selected="true" style="-fx-font-size: 13px;" />
+                                <CheckBox text="Recibir ofertas y promociones" style="-fx-font-size: 13px;" />
+                            </VBox>
+                        </VBox>
+
+                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
+                            <Label text="Informacion y Politicas" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <Separator />
+
+                            <VBox spacing="10.0">
+                                <Button text="Terminos y Condiciones" style="-fx-padding: 10 20; -fx-background-color: #f1f5f9; -fx-cursor: hand; -fx-border-color: #cbd5e1; -fx-border-width: 1; -fx-background-radius: 6; -fx-border-radius: 6; -fx-alignment: CENTER_LEFT;" />
+                                <Button text="Politica de Privacidad" style="-fx-padding: 10 20; -fx-background-color: #f1f5f9; -fx-cursor: hand; -fx-border-color: #cbd5e1; -fx-border-width: 1; -fx-background-radius: 6; -fx-border-radius: 6; -fx-alignment: CENTER_LEFT;" />
+                                <Button text="Centro de Ayuda" style="-fx-padding: 10 20; -fx-background-color: #f1f5f9; -fx-cursor: hand; -fx-border-color: #cbd5e1; -fx-border-width: 1; -fx-background-radius: 6; -fx-border-radius: 6; -fx-alignment: CENTER_LEFT;" />
+                                <Button text="Contactar Soporte" style="-fx-padding: 10 20; -fx-background-color: #f1f5f9; -fx-cursor: hand; -fx-border-color: #cbd5e1; -fx-border-width: 1; -fx-background-radius: 6; -fx-border-radius: 6; -fx-alignment: CENTER_LEFT;" />
+                            </VBox>
+                        </VBox>
+
+                        <VBox spacing="15.0" style="-fx-background-color: #fef2f2; -fx-padding: 25; -fx-background-radius: 10; -fx-border-color: #fca5a5; -fx-border-width: 2; -fx-border-radius: 10;">
+                            <Label text="Zona de Peligro" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #dc2626;" />
+                            <Separator />
+
+                            <VBox spacing="10.0">
+                                <Label text="Estas acciones son irreversibles. Proceda con precaucion." style="-fx-font-size: 12px; -fx-text-fill: #991b1b;" />
+                                <Button text="Eliminar Cuenta" style="-fx-padding: 10 20; -fx-background-color: #dc2626; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold; -fx-background-radius: 6;" />
+                            </VBox>
+                        </VBox>
+
                     </VBox>
-                </VBox>
+                </ScrollPane>
             </Tab>
 
         </TabPane>
     </center>
+
+    <bottom>
+        <HBox spacing="10.0" style="-fx-background-color: #f8fafc; -fx-padding: 12; -fx-border-color: #e2e8f0; -fx-border-width: 1 0 0 0;" alignment="CENTER">
+            <Label text="2024 Logistica Express - Todos los derechos reservados" style="-fx-font-size: 11px; -fx-text-fill: #64748b;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Version 1.0.0" style="-fx-font-size: 11px; -fx-text-fill: #94a3b8;" />
+        </HBox>
+    </bottom>
 
 </BorderPane>
