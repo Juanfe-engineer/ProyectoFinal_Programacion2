@@ -27,7 +27,7 @@ public class EnvioObservable {
         registrarHistorial("Envío creado");
     }
 
-    /**
+    /*
      * Agregar observador
      */
     public void agregarObservador(ObservadorEnvio observador) {
@@ -38,7 +38,7 @@ public class EnvioObservable {
         }
     }
 
-    /**
+    /*
      * Remover observador
      */
     public void removerObservador(ObservadorEnvio observador) {
@@ -48,18 +48,18 @@ public class EnvioObservable {
         }
     }
 
-    /**
+    /*
      * Notificar a todos los observadores
      */
     private void notificarObservadores(String mensaje) {
-        System.out.println("\n📢 Notificando a " + observadores.size() + " observadores...");
+        System.out.println("\nNotificando a " + observadores.size() + " observadores...");
         for (ObservadorEnvio observador : observadores) {
             observador.actualizar(id, estadoActual, mensaje);
         }
         System.out.println();
     }
 
-    /**
+    /*
      * Cambiar estado del envío (trigger de notificaciones)
      */
 

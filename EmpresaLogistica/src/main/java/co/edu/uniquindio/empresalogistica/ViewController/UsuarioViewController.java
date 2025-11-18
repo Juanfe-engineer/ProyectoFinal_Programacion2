@@ -394,8 +394,8 @@ public class UsuarioViewController {
 
     }
 
-    /**
-     * ⭐ MOSTRAR DETALLES DEL ENVÍO CON INCIDENCIAS
+    /*
+     * MOSTRAR DETALLES DEL ENVÍO CON INCIDENCIAS
      */
     private void mostrarDetallesEnvio(EnvioTabla envioTabla) {
         try {
@@ -442,7 +442,7 @@ public class UsuarioViewController {
 
             contenido.getChildren().addAll(titulo, new Separator(), grid);
 
-            // ⭐ MOSTRAR INCIDENCIAS SI EXISTEN
+            // MOSTRAR INCIDENCIAS SI EXISTEN
             if (envio.tieneIncidencias()) {
                 Label tituloIncidencias = new Label(" Incidencias Reportadas");
                 tituloIncidencias.setStyle("-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #dc2626;");
@@ -500,7 +500,7 @@ public class UsuarioViewController {
     }
 
 
-    /**
+    /*
      * Crear label helper
      */
     private Label crearLabel(String texto, boolean negrita) {
@@ -596,7 +596,7 @@ public class UsuarioViewController {
                     .orElse(null);
 
             if (envioEncontrado == null) {
-                txtInfoRastreo.setText("❌ Envío no encontrado");
+                txtInfoRastreo.setText("Envío no encontrado");
                 return;
             }
 
@@ -610,18 +610,18 @@ public class UsuarioViewController {
 
     private String generarInfoRastreo(Envio envio) {
         StringBuilder sb = new StringBuilder();
-        sb.append("🔍 INFORMACIÓN DEL ENVÍO\n");
+        sb.append("INFORMACIÓN DEL ENVÍO\n");
         sb.append("═══════════════════════════════════\n\n");
-        sb.append("📦 ID: ").append(envio.getIdEnvio().substring(0, 8)).append("\n");
-        sb.append("📍 Origen: ").append(envio.getOrigen().getCalle()).append("\n");
-        sb.append("📍 Destino: ").append(envio.getDestino().getCalle()).append("\n\n");
+        sb.append("ID: ").append(envio.getIdEnvio().substring(0, 8)).append("\n");
+        sb.append("Origen: ").append(envio.getOrigen().getCalle()).append("\n");
+        sb.append("Destino: ").append(envio.getDestino().getCalle()).append("\n\n");
 
-        sb.append("📊 ESTADO ACTUAL\n");
+        sb.append("ESTADO ACTUAL\n");
         sb.append("─────────────────────────────────\n");
         sb.append("Estado: ").append(getEmojiEstado(envio.getEstadoEnvio()));
         sb.append(" ").append(envio.getEstadoEnvio().getDescripcion()).append("\n\n");
 
-        sb.append("📅 FECHAS\n");
+        sb.append("FECHAS\n");
         sb.append("─────────────────────────────────\n");
         sb.append("Creación: ").append(envio.getFechaCreacion().format(
                 DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))).append("\n");
@@ -633,7 +633,7 @@ public class UsuarioViewController {
                     DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))).append("\n");
         }
 
-        sb.append("\n💰 Costo: $").append(String.format("%.2f", envio.getCostoTotal())).append(" COP\n");
+        sb.append("\nCosto: $").append(String.format("%.2f", envio.getCostoTotal())).append(" COP\n");
 
         return sb.toString();
     }
@@ -707,8 +707,8 @@ public class UsuarioViewController {
         }
     }
 
-    /**
-     * ⭐ GENERAR PDF CON ITEXT
+    /*
+     * GENERAR PDF CON ITEXT
      */
     private void generarPDF(File file) throws Exception {
         Document documento = new Document(PageSize.A4);
@@ -816,7 +816,7 @@ public class UsuarioViewController {
 
         documento.close();
 
-        System.out.println("✅ PDF generado correctamente: " + file.getAbsolutePath());
+        System.out.println("PDF generado correctamente: " + file.getAbsolutePath());
     }
 
     // ========== FUNCIONES MI CARTERA ==========

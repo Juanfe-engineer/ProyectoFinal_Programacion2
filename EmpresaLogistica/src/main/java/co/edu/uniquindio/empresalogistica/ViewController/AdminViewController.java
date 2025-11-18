@@ -25,10 +25,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 🎯 CONTROLADOR DE VISTA DEL ADMINISTRADOR
- * El dashboard más completo del sistema
- */
+
 public class AdminViewController {
 
     // ==========  COMPONENTES DEL DASHBOARD PRINCIPAL ==========
@@ -94,8 +91,8 @@ public class AdminViewController {
     private ObservableList<RepartidorDTO> listaRepartidores;
     private ObservableList<EnvioAdmin> listaEnvios;
 
-    /**
-     * 🚀 INICIALIZACIÓN
+    /*
+     * INICIALIZACIÓN
      */
     @FXML
     public void initialize() {
@@ -125,9 +122,9 @@ public class AdminViewController {
         System.out.println(" AdminViewController inicializado");
     }
 
-    // ========== 📋 CONFIGURACIÓN DE TABLAS ==========
+    // ========== CONFIGURACIÓN DE TABLAS ==========
 
-    /**
+    /*
      * Configurar todas las tablas del sistema
      */
     private void configurarTablas() {
@@ -136,7 +133,7 @@ public class AdminViewController {
         configurarTablaEnvios();
     }
 
-    /**
+    /*
      * Configurar tabla de usuarios
      */
     private void configurarTablaUsuarios() {
@@ -174,7 +171,7 @@ public class AdminViewController {
         tblUsuarios.setItems(listaUsuarios);
     }
 
-    /**
+    /*
      * Configurar tabla de repartidores
      */
     private void configurarTablaRepartidores() {
@@ -228,7 +225,7 @@ public class AdminViewController {
         tblRepartidores.setItems(listaRepartidores);
     }
 
-    /**
+    /*
      * Configurar tabla de envíos
      */
     private void configurarTablaEnvios() {
@@ -266,7 +263,7 @@ public class AdminViewController {
         tblEnvios.setItems(listaEnvios);
     }
 
-    /**
+    /*
      * Configurar filtros y combos
      */
     private void configurarFiltros() {
@@ -285,7 +282,7 @@ public class AdminViewController {
 
 // ==========  CARGAR DASHBOARD ==========
 
-    /**
+    /*
      * Cargar todas las métricas del dashboard
      */
     private void cargarDashboard() {
@@ -326,7 +323,7 @@ public class AdminViewController {
 
 // ==========  CONFIGURAR Y CARGAR GRÁFICOS ==========
 
-    /**
+    /*
      * Configurar estilos de los gráficos
      */
     private void configurarGraficos() {
@@ -359,7 +356,7 @@ public class AdminViewController {
         }
     }
 
-    /**
+    /*
      * Cargar datos en todos los gráficos
      */
     private void cargarGraficos() {
@@ -369,7 +366,7 @@ public class AdminViewController {
         cargarGraficoIngresosMes();
     }
 
-    /**
+    /*
      *  Gráfico de Líneas: Envíos de la última semana
      */
     private void cargarGraficoEnviosSemana() {
@@ -393,7 +390,7 @@ public class AdminViewController {
         chartEnviosSemana.getData().add(series);
     }
 
-    /**
+    /*
      *  Gráfico de Barras: Top 5 Repartidores
      */
     private void cargarGraficoTopRepartidores() {
@@ -415,7 +412,7 @@ public class AdminViewController {
         chartTopRepartidores.getData().add(series);
     }
 
-    /**
+    /*
      *  Gráfico Circular: Distribución por Estado
      */
     private void cargarGraficoEstadosEnvio() {
@@ -435,7 +432,7 @@ public class AdminViewController {
         chartEstadosEnvio.setData(pieData);
     }
 
-    /**
+    /*
      *  Gráfico de Área: Ingresos del mes
      */
     private void cargarGraficoIngresosMes() {
@@ -465,7 +462,7 @@ public class AdminViewController {
 
 // ==========  CARGAR DATOS EN TABLAS ==========
 
-    /**
+    /*
      * Cargar usuarios en la tabla
      */
     private void cargarUsuarios() {
@@ -475,7 +472,7 @@ public class AdminViewController {
         System.out.println(" Cargados " + usuarios.size() + " usuarios");
     }
 
-    /**
+    /*
      * Cargar repartidores en la tabla
      */
     private void cargarRepartidores() {
@@ -485,7 +482,7 @@ public class AdminViewController {
         System.out.println(" Cargados " + repartidores.size() + " repartidores");
     }
 
-    /**
+    /*
      * Cargar envíos en la tabla
      */
     private void cargarEnvios() {
@@ -506,9 +503,9 @@ public class AdminViewController {
         System.out.println(" Cargados " + envios.size() + " envíos");
     }
 
-// ========== 🔍 BÚSQUEDAS ==========
+// ========== BÚSQUEDAS ==========
 
-    /**
+    /*
      * Buscar usuarios
      */
     @FXML
@@ -527,7 +524,7 @@ public class AdminViewController {
         mostrarInfo("Se encontraron " + resultados.size() + " usuarios");
     }
 
-    /**
+    /*
      * Buscar repartidores
      */
     @FXML
@@ -546,9 +543,9 @@ public class AdminViewController {
         mostrarInfo("Se encontraron " + resultados.size() + " repartidores");
     }
 
-// ========== 🔄 ACTUALIZAR DATOS ==========
+// ========== ACTUALIZAR DATOS ==========
 
-    /**
+    /*
      * Refrescar todo el dashboard
      */
     @FXML
@@ -562,9 +559,9 @@ public class AdminViewController {
     }
 
 
-    // ========== 👥 OPERACIONES CON USUARIOS ==========
+    // ========== OPERACIONES CON USUARIOS ==========
 
-    /**
+    /*
      * Crear nuevo usuario
      */
     @FXML
@@ -643,7 +640,7 @@ public class AdminViewController {
         }
     }
 
-    /**
+    /*
      * Editar usuario seleccionado
      */
     @FXML
@@ -706,7 +703,7 @@ public class AdminViewController {
         }
     }
 
-    /**
+    /*
      * Eliminar usuario
      */
     @FXML
@@ -736,7 +733,7 @@ public class AdminViewController {
         });
     }
 
-    /**
+    /*
      * Suspender/Activar usuario
      */
     @FXML
@@ -772,7 +769,7 @@ public class AdminViewController {
 
 // ==========  OPERACIONES CON REPARTIDORES ==========
 
-    /**
+    /*
      * Crear nuevo repartidor
      */
     @FXML
@@ -847,7 +844,7 @@ public class AdminViewController {
         }
     }
 
-    /**
+    /*
      * Editar repartidor seleccionado
      */
     @FXML
@@ -910,7 +907,7 @@ public class AdminViewController {
         }
     }
 
-    /**
+    /*
      * Cambiar disponibilidad de repartidor
      */
     @FXML
@@ -940,7 +937,7 @@ public class AdminViewController {
 
 // ==========  OPERACIONES CON ENVÍOS ==========
 
-    /**
+    /*
      * Asignar envío a repartidor
      */
     @FXML
@@ -989,7 +986,7 @@ public class AdminViewController {
         });
     }
 
-    /**
+    /*
      * Ver detalles completos de un envío
      */
     @FXML
@@ -997,7 +994,7 @@ public class AdminViewController {
         EnvioAdmin seleccionado = tblEnvios.getSelectionModel().getSelectedItem();
 
         if (seleccionado == null) {
-            mostrarAdvertencia("⚠️ Seleccione un envío");
+            mostrarAdvertencia("Seleccione un envío");
             return;
         }
 
@@ -1018,7 +1015,7 @@ public class AdminViewController {
             detalles.setTitle("Detalles del Envío");
             detalles.setHeaderText("Envío: " + seleccionado.getId());
 
-            // ⭐ VERSIÓN SIMPLIFICADA SIN getPaquete()
+
             String contenido = String.format(
                     "INFORMACIÓN DEL ENVÍO\n\n" +
                             "ID Completo: %s\n" +
@@ -1047,7 +1044,7 @@ public class AdminViewController {
         }
     }
 
-    /**
+    /*
      * Filtrar envíos por estado
      */
     @FXML
@@ -1081,7 +1078,7 @@ public class AdminViewController {
 
     // ==========  CERRAR SESIÓN ==========
 
-    /**
+    /*
      * Cerrar sesión y volver al login
      */
     @FXML
@@ -1099,7 +1096,7 @@ public class AdminViewController {
         });
     }
 
-    /**
+    /*
      * Volver a la pantalla de login
      */
     private void volverAlLogin() {
@@ -1126,7 +1123,7 @@ public class AdminViewController {
 
 // ==========  MENSAJES Y ALERTAS ==========
 
-    /**
+    /*
      * Mostrar mensaje de éxito
      */
     private void mostrarExito(String mensaje) {
@@ -1137,7 +1134,7 @@ public class AdminViewController {
         alert.showAndWait();
     }
 
-    /**
+    /*
      * Mostrar mensaje de error
      */
     private void mostrarError(String mensaje) {
@@ -1148,7 +1145,7 @@ public class AdminViewController {
         alert.showAndWait();
     }
 
-    /**
+    /*
      * Mostrar mensaje de advertencia
      */
     private void mostrarAdvertencia(String mensaje) {
@@ -1159,7 +1156,7 @@ public class AdminViewController {
         alert.showAndWait();
     }
 
-    /**
+    /*
      * Mostrar mensaje informativo
      */
     private void mostrarInfo(String mensaje) {
@@ -1172,7 +1169,7 @@ public class AdminViewController {
 
 // ==========  CLASE INTERNA PARA TABLA DE ENVÍOS ==========
 
-    /**
+    /*
      * Clase auxiliar para mostrar envíos en la tabla del admin
      */
     public static class EnvioAdmin {

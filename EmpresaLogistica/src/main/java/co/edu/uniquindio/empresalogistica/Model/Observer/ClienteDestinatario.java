@@ -21,7 +21,7 @@ public class ClienteDestinatario implements ObservadorEnvio {
         System.out.println("   Paquete #" + idEnvio + ": " + mensaje);
 
         if (nuevoEstado == EstadoEnvio.EN_REPARTO) {
-            System.out.println("   ⚠️  Tu paquete llegará en 1-2 horas. Prepárate para recibirlo.");
+            System.out.println("Tu paquete llegará en 1-2 horas. Prepárate para recibirlo.");
         }
     }
 

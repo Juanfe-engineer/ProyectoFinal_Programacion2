@@ -58,13 +58,13 @@
                 </VBox>
 
                 <VBox spacing="5">
-                    <Label text="Contrasena" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
+                    <Label text="Contraseña" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
                     <PasswordField fx:id="txtPassword" promptText="Minimo 6 caracteres" style="-fx-background-color: #f1f5f9; -fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8; -fx-font-size: 12px;" />
                 </VBox>
 
                 <VBox spacing="5">
-                    <Label text="Confirmar Contrasena" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
-                    <PasswordField fx:id="txtConfirmPassword" promptText="Repita la contrasena" style="-fx-background-color: #f1f5f9; -fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8; -fx-font-size: 12px;" />
+                    <Label text="Confirmar Contraseña" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #475569;" />
+                    <PasswordField fx:id="txtConfirmPassword" promptText="Repita la contraseña" style="-fx-background-color: #f1f5f9; -fx-border-color: #d1d5db; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8; -fx-font-size: 12px;" />
                 </VBox>
 
                 <Label fx:id="lblMensaje" text="" style="-fx-text-fill: #dc2626; -fx-font-size: 10px;" wrapText="true" maxWidth="320" />

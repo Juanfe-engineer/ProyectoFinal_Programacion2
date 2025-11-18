@@ -14,7 +14,7 @@ public class SistemaAnalitica implements ObservadorEnvio {
         System.out.println("   Total eventos registrados: " + enviosMonitoreados);
 
         if (nuevoEstado == EstadoEnvio.ENTREGADO) {
-            System.out.println("   Entrega exitosa registrada en KPIs");
+            System.out.println("Entrega exitosa registrada en KPIs");
         }
     }
 

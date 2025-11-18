@@ -188,13 +188,12 @@ public class RepartidorViewController {
         }
     }
 
-    // Declarar estos componentes al inicio si no están:
     @FXML private PasswordField txtPasswordActual;
     @FXML private PasswordField txtPasswordNueva;
     @FXML private PasswordField txtPasswordConfirmar;
     @FXML private Button btnCambiarPassword;
 
-    // ========== FUNCIONES MI PERFIL ========== (resto del código existente)
+    // ========== FUNCIONES MI PERFIL ==========
 
     private void cargarDatosRepartidor() {
         lblBienvenida.setText("Bienvenido, " + repartidorActual.getNombre() + "!");
@@ -370,10 +369,10 @@ public class RepartidorViewController {
             }
 
             cargarEnviosAsignados();
-            cargarEstadisticas(); // ← Esto ahora mostrará las incidencias actualizadas
+            cargarEstadisticas();
             limpiarCambioEstado();
 
-            mostrarExito("✅ Incidencia reportada exitosamente");
+            mostrarExito("Incidencia reportada exitosamente");
         }
     }
 
@@ -470,7 +469,6 @@ public class RepartidorViewController {
         String disponibilidadActual = repartidorActual.getDisponibilidad();
         String nuevaDisponibilidad = "";
 
-        // Ciclo: INACTIVO -> ACTIVO -> EN_RUTA -> INACTIVO
         switch (disponibilidadActual) {
             case "INACTIVO":
                 nuevaDisponibilidad = "ACTIVO";
@@ -495,7 +493,6 @@ public class RepartidorViewController {
     }
 
     private void cargarDireccionesFrecuentes() {
-        // Simulación de direcciones frecuentes en la zona
         ObservableList<String> direcciones = FXCollections.observableArrayList(
                 "Calle 10 #20-30, Centro",
                 "Carrera 5 #100-10, Norte",

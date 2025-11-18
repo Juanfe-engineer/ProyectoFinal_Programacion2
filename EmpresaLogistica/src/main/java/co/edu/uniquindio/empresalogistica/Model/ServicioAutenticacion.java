@@ -17,7 +17,7 @@ public class ServicioAutenticacion {
         crearCredencialPrueba("admin@admin.com", "123456", TipoPerfil.ADMINISTRADOR, "Admin Sistema");
     }
 
-    /**
+    /*
      * Registrar Nuevo Usuario
      */
     public boolean registrarse(String usuario, String password, TipoPerfil tipoPerfil, String nombreCompleto) {
@@ -39,7 +39,7 @@ public class ServicioAutenticacion {
         return crearCredencialPrueba(usuario, password, tipoPerfil, nombreCompleto);
     }
 
-    /**
+    /*
      * Iniciar Sesión
      */
     public boolean iniciarSesion(String usuario, String password){
@@ -70,7 +70,7 @@ public class ServicioAutenticacion {
         return true;
     }
 
-    /**
+    /*
      *  CAMBIAR CONTRASEÑA - CORREGIDO
      */
     public boolean cambiarContrasena(String contrasenaActual, String contrasenaNueva) {
@@ -111,14 +111,14 @@ public class ServicioAutenticacion {
         return true;
     }
 
-    /**
+    /*
      * Obtener usuario actualmente logueado
      */
     public CredencialUsuario obtenerUsuarioActual(){
         return usuarioActualLogueado;
     }
 
-    /**
+    /*
      * Cerrar Sesión
      */
     public void cerrarSesion(){
@@ -128,7 +128,7 @@ public class ServicioAutenticacion {
         }
     }
 
-    /**
+    /*
      * Obtener tipo de perfil del usuario actual
      */
     public TipoPerfil obtenerTipoPerfilActual(){
@@ -138,14 +138,14 @@ public class ServicioAutenticacion {
         return null;
     }
 
-    /**
+    /*
      * Verificar usuario logueado
      */
     public boolean estaLogueado(){
         return usuarioActualLogueado != null;
     }
 
-    /**
+    /*
      * Método privado para crear credenciales
      */
     private boolean crearCredencialPrueba(String usuario, String password, TipoPerfil tipoPerfil, String nombreCompleto) {
@@ -155,7 +155,7 @@ public class ServicioAutenticacion {
         return true;
     }
 
-    /**
+    /*
      *  OBTENER CREDENCIALES (para debug)
      */
     public Map<String, CredencialUsuario> getCredencialesRegistrados() {

@@ -182,7 +182,7 @@ public class EmpresaLogisticaFactory {
 
     public boolean cambiarContrasenaRepartidor(String correo, String passwordActual, String passwordNueva) {
         if (repartidorActual == null || !repartidorActual.getCorreo().equals(correo)) {
-            System.err.println("❌ Repartidor no autorizado para cambiar contraseña");
+            System.err.println("Repartidor no autorizado para cambiar contraseña");
             return false;
         }
 
@@ -465,7 +465,7 @@ public class EmpresaLogisticaFactory {
             System.out.println("✓ Envío " + envio.getIdEnvio().substring(0, 8) +
                     " asignado a: " + repartidorDisponible.getNombre());
         } else {
-            System.out.println("⚠ No hay repartidores disponibles. Envío en espera.");
+            System.out.println("No hay repartidores disponibles. Envío en espera.");
         }
     }
 
@@ -547,7 +547,6 @@ public class EmpresaLogisticaFactory {
         System.out.println("Descripción: " + descripcion);
         System.out.println("Estado anterior: " + envio.getEstadoEnvio());
 
-        // No cambiar a CANCELADO automáticamente, solo registrar
         System.out.println("Incidencia registrada en el sistema");
     }
 
@@ -694,7 +693,7 @@ public class EmpresaLogisticaFactory {
     }
 
 
-    /**
+    /*
      * Incrementar contador de incidencias de un repartidor
      */
     public void incrementarIncidenciasRepartidor(String idRepartidor) throws Exception {
@@ -722,10 +721,10 @@ public class EmpresaLogisticaFactory {
         envio.agregarIncidencia(incidencia);
 
 
-        System.out.println("✅ Incidencia agregada al envío: " + idEnvio);
+        System.out.println("Incidencia agregada al envío: " + idEnvio);
     }
 
-   /**
+   /*
      * Obtener envíos de un repartidor
      */
     public List<Envio> obtenerEnviosPorRepartidor(String idRepartidor) {
@@ -773,11 +772,6 @@ public class EmpresaLogisticaFactory {
 
     private void inicializarAdministrador() {
         credencialesUsuarios.put("admin@admin.com", "admin123");
-        System.out.println("✅ Administrador inicializado: admin@admin.com / admin123");
+        System.out.println("Administrador inicializado: admin@admin.com / admin123");
     }
-
-
-
-
-
 }

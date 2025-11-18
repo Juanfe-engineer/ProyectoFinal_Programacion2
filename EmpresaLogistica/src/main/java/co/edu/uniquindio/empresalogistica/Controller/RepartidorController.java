@@ -167,17 +167,16 @@ public class RepartidorController {
 
             factory.agregarIncidenciaAEnvio(idEnvio, incidencia);
 
-            // ⭐ INCREMENTAR CONTADOR DE INCIDENCIAS DEL REPARTIDOR
             factory.incrementarIncidenciasRepartidor(repartidorActual.getId());
 
-            System.out.println("✅ Incidencia reportada: " + idIncidencia);
-            System.out.println("📊 Total incidencias del repartidor: " +
+            System.out.println("Incidencia reportada: " + idIncidencia);
+            System.out.println("Total incidencias del repartidor: " +
                     (repartidorActual.getIncidenciasReportadas() + 1));
 
             return true;
 
         } catch (Exception e) {
-            System.err.println("❌ Error al reportar incidencia: " + e.getMessage());
+            System.err.println("Error al reportar incidencia: " + e.getMessage());
             e.printStackTrace();
             return false;
         }

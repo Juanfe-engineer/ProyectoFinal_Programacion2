@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.util.Optional;
 
-/**
+/*
  *  DIALOG PARA REPORTAR INCIDENCIAS
  */
 public class ReportarIncidenciaDialog extends Dialog<Boolean> {
@@ -33,7 +33,7 @@ public class ReportarIncidenciaDialog extends Dialog<Boolean> {
         configurarBotones();
     }
 
-    /**
+    /*
      * Configurar propiedades del dialog
      */
     private void configurarDialog() {
@@ -56,7 +56,7 @@ public class ReportarIncidenciaDialog extends Dialog<Boolean> {
         );
     }
 
-    /**
+    /*
      * Crear el contenido del dialog
      */
     private void crearContenido(String idEnvioPreseleccionado) {
@@ -65,7 +65,7 @@ public class ReportarIncidenciaDialog extends Dialog<Boolean> {
         contenido.setStyle("-fx-background-color: white;");
 
         // ===== TÍTULO CON ICONO =====
-        Label lblTitulo = new Label("⚠️ Reportar Incidencia de Envío");
+        Label lblTitulo = new Label("Reportar Incidencia de Envío");
         lblTitulo.setStyle(
                 "-fx-font-size: 18px; " +
                         "-fx-font-weight: bold; " +
@@ -123,16 +123,16 @@ public class ReportarIncidenciaDialog extends Dialog<Boolean> {
 
         cmbTipoIncidencia = new ComboBox<>();
         cmbTipoIncidencia.getItems().addAll(
-                " Paquete dañado",
-                " Dirección incorrecta",
-                " Cliente no encontrado",
-                " Cliente rechazó el paquete",
-                " Retraso en la entrega",
-                " Problema con el vehículo",
-                "️ Condiciones climáticas adversas",
-                " Problemas de comunicación",
-                " Acceso restringido",
-                "️ Otro (especificar en descripción)"
+                "Paquete dañado",
+                "Dirección incorrecta",
+                "Cliente no encontrado",
+                "Cliente rechazó el paquete",
+                "Retraso en la entrega",
+                "Problema con el vehículo",
+                "️Condiciones climáticas adversas",
+                "Problemas de comunicación",
+                "Acceso restringido",
+                "️Otro (especificar en descripción)"
         );
         cmbTipoIncidencia.setPromptText("Seleccione el tipo de incidencia");
         cmbTipoIncidencia.setPrefWidth(550);
@@ -181,7 +181,7 @@ public class ReportarIncidenciaDialog extends Dialog<Boolean> {
 
         // ===== NOTA INFORMATIVA =====
         Label lblNota = new Label(
-                "ℹ️ Nota: Esta incidencia será registrada en el sistema y " +
+                "Nota: Esta incidencia será registrada en el sistema y " +
                         "notificada al equipo de soporte y al cliente."
         );
         lblNota.setWrapText(true);
@@ -207,11 +207,11 @@ public class ReportarIncidenciaDialog extends Dialog<Boolean> {
         getDialogPane().setContent(contenido);
     }
 
-    /**
+    /*
      * Configurar botones del dialog
      */
     private void configurarBotones() {
-        ButtonType btnReportar = new ButtonType(" Reportar Incidencia", ButtonBar.ButtonData.OK_DONE);
+        ButtonType btnReportar = new ButtonType("Reportar Incidencia", ButtonBar.ButtonData.OK_DONE);
         ButtonType btnCancelar = new ButtonType("Cancelar", ButtonBar.ButtonData.CANCEL_CLOSE);
 
         getDialogPane().getButtonTypes().addAll(btnReportar, btnCancelar);
@@ -252,14 +252,14 @@ public class ReportarIncidenciaDialog extends Dialog<Boolean> {
         });
     }
 
-    /**
+    /*
      *  BUSCAR ENVÍO
      */
     private void buscarEnvio() {
         String idEnvio = txtIdEnvio.getText().trim();
 
         if (idEnvio.isEmpty()) {
-            mostrarAlerta("⚠ Ingrese un ID de envío", Alert.AlertType.WARNING);
+            mostrarAlerta("Ingrese un ID de envío", Alert.AlertType.WARNING);
             return;
         }
 
@@ -268,21 +268,21 @@ public class ReportarIncidenciaDialog extends Dialog<Boolean> {
 
             if (envio != null) {
                 mostrarAlerta(
-                        " Envío encontrado:\n\n" +
+                        "Envío encontrado:\n\n" +
                                 "Origen: " + envio.getOrigen().getCalle() + "\n" +
                                 "Destino: " + envio.getDestino().getCalle() + "\n" +
                                 "Estado: " + envio.getEstadoEnvio().getDescripcion(),
                         Alert.AlertType.INFORMATION
                 );
             } else {
-                mostrarAlerta(" Envío no encontrado", Alert.AlertType.ERROR);
+                mostrarAlerta("Envío no encontrado", Alert.AlertType.ERROR);
             }
         } catch (Exception e) {
-            mostrarAlerta(" Error al buscar envío: " + e.getMessage(), Alert.AlertType.ERROR);
+            mostrarAlerta("Error al buscar envío: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
-    /**
+    /*
      *  REPORTAR INCIDENCIA
      */
     private boolean reportarIncidencia() {
@@ -301,7 +301,7 @@ public class ReportarIncidenciaDialog extends Dialog<Boolean> {
 
             if (exitoso) {
                 mostrarAlerta(
-                        " Incidencia reportada exitosamente\n\n" +
+                        "Incidencia reportada exitosamente\n\n" +
                                 "ID Envío: " + idEnvio + "\n" +
                                 "Tipo: " + tipoIncidencia + "\n\n" +
                                 "El equipo de soporte ha sido notificado.",
@@ -318,7 +318,7 @@ public class ReportarIncidenciaDialog extends Dialog<Boolean> {
         }
     }
 
-    /**
+    /*
      * Mostrar alerta
      */
     private void mostrarAlerta(String mensaje, Alert.AlertType tipo) {

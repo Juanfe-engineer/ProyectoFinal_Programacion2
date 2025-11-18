@@ -74,7 +74,7 @@
             </HBox>
 
             <!-- Mensaje -->
-            <Label fx:id="lblMensaje" text=""
+            <Label fx:id="lblMensaje" text="Logistica express"
                    style="-fx-text-fill: #dc2626; -fx-font-size: 11px;" />
 
         </VBox>

@@ -23,14 +23,14 @@ public class AdminController {
 
     // ==========  GESTIÓN DE USUARIOS ==========
 
-    /**
+    /*
      * Obtener todos los usuarios del sistema
      */
     public List<UsuarioDTO> obtenerTodosLosUsuarios() {
         return factory.obtenerTodosLosUsuarios();
     }
 
-    /**
+    /*
      * Crear un nuevo usuario
      */
     public boolean crearUsuario(UsuarioDTO usuarioDTO, String password) {
@@ -45,7 +45,7 @@ public class AdminController {
         }
     }
 
-    /**
+    /*
      * Actualizar usuario existente
      */
     public boolean actualizarUsuario(UsuarioDTO usuarioDTO) {
@@ -59,7 +59,7 @@ public class AdminController {
         }
     }
 
-    /**
+    /*
      * Eliminar usuario
      */
     public boolean eliminarUsuario(String idUsuario) {
@@ -73,7 +73,7 @@ public class AdminController {
         }
     }
 
-    /**
+    /*
      * Suspender/Activar usuario
      */
     public boolean cambiarEstadoUsuario(String idUsuario, EstadoUsuario nuevoEstado) {
@@ -98,7 +98,7 @@ public class AdminController {
         return factory.obtenerTodosLosRepartidores();
     }
 
-    /**
+    /*
      * Crear nuevo repartidor
      */
     public boolean crearRepartidor(RepartidorDTO repartidorDTO, String password) {
@@ -113,7 +113,7 @@ public class AdminController {
         }
     }
 
-    /**
+    /*
      * Actualizar repartidor
      */
     public boolean actualizarRepartidor(RepartidorDTO repartidorDTO) {
@@ -127,7 +127,7 @@ public class AdminController {
         }
     }
 
-    /**
+    /*
      * Cambiar disponibilidad de repartidor
      */
     public boolean cambiarDisponibilidadRepartidor(String idRepartidor, DisponibilidadRepartidor disponibilidad) {
@@ -141,7 +141,7 @@ public class AdminController {
         }
     }
 
-    /**
+    /*
      * Obtener repartidores disponibles para asignación
      */
     public List<RepartidorDTO> obtenerRepartidoresDisponibles() {
@@ -152,14 +152,14 @@ public class AdminController {
 
     // ==========  GESTIÓN DE ENVÍOS ==========
 
-    /**
+    /*
      * Obtener todos los envíos del sistema
      */
     public List<Envio> obtenerTodosLosEnvios() {
         return factory.obtenerTodosLosEnvios();
     }
 
-    /**
+    /*
      * Asignar envío a repartidor
      */
     public boolean asignarEnvioARepartidor(String idEnvio, String idRepartidor) {
@@ -183,7 +183,7 @@ public class AdminController {
         }
     }
 
-    /**
+    /*
      * Obtener envíos sin asignar
      */
     public List<Envio> obtenerEnviosSinAsignar() {
@@ -194,7 +194,7 @@ public class AdminController {
 
     // ==========  MÉTRICAS Y ESTADÍSTICAS ==========
 
-    /**
+    /*
      * Calcular tiempo promedio de entrega del sistema
      */
     public double calcularTiempoPromedioEntrega() {
@@ -219,7 +219,7 @@ public class AdminController {
         return (double) totalMinutos / enviosEntregados.size();
     }
 
-    /**
+    /*
      * Contar envíos por estado
      */
     public Map<EstadoEnvio, Long> contarEnviosPorEstado() {
@@ -227,7 +227,7 @@ public class AdminController {
                 .collect(Collectors.groupingBy(Envio::getEstadoEnvio, Collectors.counting()));
     }
 
-    /**
+    /*
      * Calcular ingresos totales
      */
     public double calcularIngresosTotales() {
@@ -237,7 +237,7 @@ public class AdminController {
                 .sum();
     }
 
-    /**
+    /*
      * Calcular ingresos por período
      */
     public double calcularIngresosPorPeriodo(LocalDate inicio, LocalDate fin) {
@@ -251,7 +251,7 @@ public class AdminController {
                 .sum();
     }
 
-    /**
+    /*
      * Obtener envíos del mes actual
      */
     public List<Envio> obtenerEnviosDelMes() {
@@ -266,7 +266,7 @@ public class AdminController {
                 .collect(Collectors.toList());
     }
 
-    /**
+    /*
      * Contar incidencias totales del sistema
      */
     public int contarIncidenciasTotales() {
@@ -275,7 +275,7 @@ public class AdminController {
                 .sum();
     }
 
-    /**
+    /*
      * Obtener top 5 repartidores por entregas
      */
     public List<Map.Entry<String, Integer>> obtenerTopRepartidores() {
@@ -296,7 +296,7 @@ public class AdminController {
                 .collect(Collectors.toList());
     }
 
-    /**
+    /*
      * Obtener distribución de envíos por día (últimos 7 días)
      */
     public Map<LocalDate, Long> obtenerEnviosPorDia() {
@@ -314,7 +314,7 @@ public class AdminController {
                 ));
     }
 
-    /**
+    /*
      * Calcular tasa de éxito de entregas
      */
     public double calcularTasaExito() {
@@ -330,7 +330,7 @@ public class AdminController {
 
     // ==========  BÚSQUEDAS Y FILTROS ==========
 
-    /**
+    /*
      * Buscar usuarios por nombre o correo
      */
     public List<UsuarioDTO> buscarUsuarios(String criterio) {
@@ -341,7 +341,7 @@ public class AdminController {
                 .collect(Collectors.toList());
     }
 
-    /**
+    /*
      * Buscar repartidores por nombre o zona
      */
     public List<RepartidorDTO> buscarRepartidores(String criterio) {
@@ -354,14 +354,14 @@ public class AdminController {
 
     // ========== 🛠️ UTILIDADES ==========
 
-    /**
+    /*
      * Cerrar sesión
      */
     public void cerrarSesion() {
         factory.logout();
     }
 
-    /**
+    /*
      * Obtener instancia del factory
      */
     public EmpresaLogisticaFactory getFactory() {

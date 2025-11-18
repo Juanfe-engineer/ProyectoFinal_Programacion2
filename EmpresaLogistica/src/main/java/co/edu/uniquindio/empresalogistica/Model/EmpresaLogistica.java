@@ -20,7 +20,6 @@ public class EmpresaLogistica {
         this.nit = "123456789-0";
     }
 
-    // CRUD
 
     // CRUD USUARIOS
 

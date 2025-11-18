@@ -67,7 +67,7 @@ public class RegistroViewController {
         System.out.println(" RegistroViewController inicializado");
     }
 
-    /**
+    /*
      * Mostrar/ocultar campos según tipo de registro
      */
     private void actualizarCamposPorTipo(String tipo) {
@@ -88,8 +88,8 @@ public class RegistroViewController {
         }
     }
 
-    /**
-     * ⭐ REGISTRAR
+    /*
+     * REGISTRAR
      */
     @FXML
     private void handleRegistrar() {
@@ -144,7 +144,7 @@ public class RegistroViewController {
         }
     }
 
-    /**
+    /*
      * Registrar como Usuario
      */
     private void registrarUsuario(String nombre, String correo, String telefono, String password) throws Exception {
@@ -158,7 +158,6 @@ public class RegistroViewController {
 
         System.out.println(" Iniciando registro de usuario: " + correo);
 
-        // PASO 1: Crear UsuarioDTO
         UsuarioDTO nuevoUsuario = new UsuarioDTO();
         nuevoUsuario.setNombre(nombre);
         nuevoUsuario.setCorreo(correo);
@@ -169,15 +168,13 @@ public class RegistroViewController {
         nuevoUsuario.setMetodosPago(metodoPago);
         nuevoUsuario.setEnviosRealizados("0");
 
-        // PASO 2: Crear usuario en Factory (esto valida que no exista)
+
         UsuarioDTO usuarioCreado = factory.crearUsuario(nuevoUsuario);
         System.out.println(" Usuario creado en Factory: " + usuarioCreado.getNombre());
 
-        // PASO 3: CREAR CREDENCIAL DE AUTENTICACIÓN
         factory.crearCredencialUsuario(correo, password);
         System.out.println(" Credencial creada para: " + correo);
 
-        // PASO 4: TAMBIÉN REGISTRAR EN SERVICIO DE AUTENTICACIÓN
         boolean credencialRegistrada = loginController.registrarse(
                 correo,
                 password,
@@ -190,13 +187,12 @@ public class RegistroViewController {
             mostrarExito("¡Registro exitoso! Redirigiendo al login...");
             esperarYVolverAlLogin();
         } else {
-            // Si falla el registro en ServicioAutenticacion, eliminar el usuario creado
             factory.eliminarUsuario(usuarioCreado.getId());
             mostrarError("Error al crear credenciales de acceso");
         }
     }
 
-    /**
+    /*
      * Registrar como Repartidor
      */
     private void registrarRepartidor(String nombre, String correo, String telefono, String password) throws Exception {
@@ -209,7 +205,6 @@ public class RegistroViewController {
 
         System.out.println(" Iniciando registro de repartidor: " + correo);
 
-        // PASO 1: Crear RepartidorDTO
         RepartidorDTO nuevoRepartidor = new RepartidorDTO();
         nuevoRepartidor.setNombre(nombre);
         nuevoRepartidor.setCorreo(correo);
@@ -221,15 +216,13 @@ public class RegistroViewController {
         nuevoRepartidor.setEnviosRealizados("0");
         nuevoRepartidor.setIncidenciasReportadas(0);
 
-        // PASO 2: Crear repartidor en Factory
+
         RepartidorDTO repartidorCreado = factory.crearRepartidor(nuevoRepartidor);
         System.out.println(" Repartidor creado en Factory: " + repartidorCreado.getNombre());
 
-        // PASO 3: CREAR CREDENCIAL DE AUTENTICACIÓN
         factory.crearCredencialUsuario(correo, password);
         System.out.println(" Credencial creada para: " + correo);
 
-        // PASO 4: TAMBIÉN REGISTRAR EN SERVICIO DE AUTENTICACIÓN
         boolean credencialRegistrada = loginController.registrarse(
                 correo,
                 password,
@@ -246,7 +239,7 @@ public class RegistroViewController {
         }
     }
 
-    /**
+    /*
      * Esperar 2 segundos y volver al login
      */
     private void esperarYVolverAlLogin() {
@@ -260,16 +253,16 @@ public class RegistroViewController {
         }).start();
     }
 
-    /**
+    /*
      *  CANCELAR Y VOLVER AL LOGIN
      */
     @FXML
     private void handleCancelar() {
-        System.out.println("🔵 Cancelando registro");
+        System.out.println("Cancelando registro");
         volverAlLogin();
     }
 
-    /**
+    /*
      * Volver a la pantalla de Login
      */
     private void volverAlLogin() {
@@ -309,12 +302,12 @@ public class RegistroViewController {
     private void mostrarError(String mensaje) {
         lblMensaje.setText(mensaje);
         lblMensaje.setStyle("-fx-text-fill: #dc2626; -fx-font-size: 11px; -fx-font-weight: bold;");
-        System.out.println("⚠️ " + mensaje);
+        System.out.println(mensaje);
     }
 
     private void mostrarExito(String mensaje) {
         lblMensaje.setText(mensaje);
         lblMensaje.setStyle("-fx-text-fill: #059669; -fx-font-size: 11px; -fx-font-weight: bold;");
-        System.out.println("✅ " + mensaje);
+        System.out.println(mensaje);
     }
 }

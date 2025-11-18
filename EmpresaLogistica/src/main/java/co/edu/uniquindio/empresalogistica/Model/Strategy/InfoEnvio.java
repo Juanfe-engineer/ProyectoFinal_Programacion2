@@ -1,9 +1,9 @@
 package co.edu.uniquindio.empresalogistica.Model.Strategy;
 
 public class InfoEnvio {
-    private double peso;           // en kilogramos
-    private double distancia;      // en kilómetros
-    private String prioridad;      // ESTANDAR, EXPRESS, PRIORITARIO
+    private double peso;
+    private double distancia;
+    private String prioridad;
     private boolean zonaRural;
 
     public InfoEnvio(double peso, double distancia, String prioridad, boolean zonaRural) {

@@ -81,7 +81,7 @@
                         </VBox>
 
                         <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
-                            <Label text="Informacion de Envio" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <Label text="Información de Envio" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
                             <Separator />
 
                             <VBox spacing="12.0">
@@ -152,7 +152,7 @@
                                 </VBox>
 
                                 <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2">
-                                    <Label text="Descripcion del Paquete" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                    <Label text="Descripción del Paquete" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
                                     <TextArea fx:id="txtDescripcion" promptText="Describa el contenido del paquete..." prefRowCount="3" wrapText="true" style="-fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
                                 </VBox>
                             </GridPane>
@@ -285,12 +285,12 @@
                 </VBox>
             </Tab>
 
-            <Tab text="Configuracion">
+            <Tab text="Configuración">
                 <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
                     <VBox spacing="20.0" style="-fx-padding: 25;">
 
                         <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
-                            <Label text="Actualizar Informacion Personal" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <Label text="Actualizar Información Personal" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
                             <Separator />
 
                             <VBox spacing="12.0">
@@ -315,23 +315,23 @@
 
                             <VBox spacing="12.0">
                                 <HBox spacing="15.0" alignment="CENTER_LEFT">
-                                    <Label text="Contrasena Actual:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
+                                    <Label text="Contraseña Actual:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
                                     <PasswordField fx:id="txtPasswordActual" promptText="********" HBox.hgrow="ALWAYS" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
                                 </HBox>
 
                                 <HBox spacing="15.0" alignment="CENTER_LEFT">
-                                    <Label text="Nueva Contrasena:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
+                                    <Label text="Nueva Contraseña:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
                                     <PasswordField fx:id="txtPasswordNueva" promptText="********" HBox.hgrow="ALWAYS" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
                                 </HBox>
 
                                 <HBox spacing="15.0" alignment="CENTER_LEFT">
-                                    <Label text="Confirmar Contrasena:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
+                                    <Label text="Confirmar Contraseña:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-min-width: 160px;" />
                                     <PasswordField fx:id="txtPasswordConfirmar" promptText="********" HBox.hgrow="ALWAYS" style="-fx-padding: 10; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
                                 </HBox>
                             </VBox>
 
                             <HBox spacing="10.0">
-                                <Button fx:id="btnCambiarPassword" text="Cambiar Contrasena" onAction="#handleCambiarPassword" style="-fx-padding: 10 25; -fx-background-color: #f59e0b; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold; -fx-background-radius: 6;" />
+                                <Button fx:id="btnCambiarPassword" text="Cambiar Contraseña" onAction="#handleCambiarPassword" style="-fx-padding: 10 25; -fx-background-color: #f59e0b; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold; -fx-background-radius: 6;" />
                             </HBox>
                         </VBox>
 
@@ -348,7 +348,7 @@
                         </VBox>
 
                         <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10;">
-                            <Label text="Informacion y Politicas" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                            <Label text="Información y Politicas" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
                             <Separator />
 
                             <VBox spacing="10.0">
@@ -364,7 +364,7 @@
                             <Separator />
 
                             <VBox spacing="10.0">
-                                <Label text="Estas acciones son irreversibles. Proceda con precaucion." style="-fx-font-size: 12px; -fx-text-fill: #991b1b;" />
+                                <Label text="Estas acciones son irreversibles. Proceda con precaución." style="-fx-font-size: 12px; -fx-text-fill: #991b1b;" />
                                 <Button text="Eliminar Cuenta" style="-fx-padding: 10 20; -fx-background-color: #dc2626; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold; -fx-background-radius: 6;" />
                             </VBox>
                         </VBox>
